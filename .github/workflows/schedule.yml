@@ -5,7 +5,7 @@ name: EWR
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: "34 * * * *"
+    - cron: "11 22 * * *"
 
 jobs:
   pull_data:
