@@ -28,7 +28,7 @@ df = pd.melt(ewr, id_vars=['Date'])
 st.subheader("Electronic warehouse receipts")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=False))
 
-c = alt.Chart(df).mark_area().encode(
+c = alt.Chart(df).mark_line().encode(
     x='Date:T',
     y='value:Q',
     color='variable:N'
