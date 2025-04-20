@@ -25,4 +25,4 @@ ewr.columns = ['Date', 'CCC', 'SO','Total Open']
 st.subheader("Electronic warehouse receipts")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=False))
 
-st.line_chart(ewr.set_index('Date')
+st.line_chart(ewr.set_index('Date'))
