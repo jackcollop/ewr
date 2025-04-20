@@ -19,19 +19,10 @@ for file in files:
 ewr = pd.DataFrame([dates,ccc,so, tot_open]).T
 #%%
 ewr.columns = ['Date', 'CCC', 'SO','Total Open']
-ewr.Date = pd.to_datetime(ewr.Date).dt.normalize()
 
-
-df = pd.melt(ewr, id_vars=['Date'])
 
 
 st.subheader("Electronic warehouse receipts")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=False))
 
-c = alt.Chart(df).mark_line().encode(
-    x='Date:T',
-    y='value:Q',
-    color='variable:N'
-)
-
-st.altair_chart(c)
+st.line_chart(ewr.set_index('Date')
