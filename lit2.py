@@ -6,7 +6,7 @@ import glob
 
 from matplotlib import pyplot as plt
 
-files = glob.glob(r'C:\Users\john.collop\Downloads\ewr-main\ewr-main\*.csv')
+files = glob.glob(r'*.csv')
 
 dates=[]
 al_fl = []
