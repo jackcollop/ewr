@@ -4,8 +4,6 @@ import streamlit as st
 
 import glob
 
-from matplotlib import pyplot as plt
-
 files = glob.glob(r'C:\Users\john.collop\Downloads\ewr-main\ewr-main\*.csv')
 
 dates=[]
