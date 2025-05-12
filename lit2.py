@@ -57,13 +57,10 @@ states.dropna(inplace=True)
 
 
 st.subheader("Electronic warehouse receipts")
-st.dataframe(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].sort_index())
+st.dataframe(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].sort_index(ascending=False))
 
-st.line_chart(states['TX'])
-st.line_chart(states['GA'])
-st.line_chart(states['MS'])
-st.line_chart(states['TN'])
-st.line_chart(states['AL & FL'])
+
+st.line_chart(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].rolling(7).sum().pct_change())
 
 
 
