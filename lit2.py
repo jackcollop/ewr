@@ -55,7 +55,7 @@ states.set_index('Date', inplace=True)
 states.dropna(inplace=True)
 
 
-dif = states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']]
+dif = states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].diff()
 dif['Week'] = dif.index.isocalendar().week
 
 st.dataframe(dif.groupby('Week').mean())
