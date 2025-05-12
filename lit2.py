@@ -58,7 +58,7 @@ states.dropna(inplace=True)
 dif = states[['Southwest','Far West','Southeast','Mid South']].sort_index().diff()
 
 st.dataframe(dif.groupby(dif.index.isocalendar().week).sum())
-st.line_chart(dif[['Southwest','Far West','Southeast','Mid South']].groupby(dif.index.isocalendar().week).sum().mul(-1))
+st.line_chart(dif[['Southwest','Far West','Southeast','Mid South']].mul(-1))
 
 
 st.subheader("Texas")
