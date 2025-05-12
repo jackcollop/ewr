@@ -1,6 +1,7 @@
 import pandas as pd
 import altair as alt
 import streamlit as st
+import datetime as dt
 
 import glob
 
@@ -49,6 +50,7 @@ states['Southeast'] = states['AL & FL'] + states['GA'] + states['NC & VA'] + sta
 states['Mid South'] = states['AR'] + states['LA'] + states['MO'] + states['MS'] + states['TN']
 
 states['Date'] = pd.to_datetime(states['Date'], format='mixed')
+states['Week'] = states['Date'].dt.isocalendar().week
 
 states.set_index('Date', inplace=True)
 states.dropna(inplace=True)
@@ -56,7 +58,7 @@ states.dropna(inplace=True)
 
 
 
-st.dataframe(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].sort_index().diff())
+st.dataframe(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX','Week']].sort_index().diff().groupby('Week').sum())
 
 st.subheader("Texas")
 st.bar_chart(states.sort_index()['TX'].diff())
