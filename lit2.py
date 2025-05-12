@@ -60,5 +60,3 @@ st.subheader("Electronic warehouse receipts")
 st.dataframe(states.diff().rolling(7).sum().dropna().sort_index())
 
 st.line_chart(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].rolling(7).sum().pct_change().mul(-1).dropna())
-
-st.line_chart(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].rolling(7).sum().pct_change().mul(-1).dropna())
