@@ -57,7 +57,7 @@ states.dropna(inplace=True)
 
 
 st.subheader("Electronic warehouse receipts")
-st.dataframe(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].diff())
+st.dataframe(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].sort_index().diff())
 
 
 st.line_chart(states[['Southwest','Far West','Southeast','Mid South']])
