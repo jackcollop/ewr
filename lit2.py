@@ -58,7 +58,7 @@ states.dropna(inplace=True)
 dif = states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].diff()
 dif['Week'] = dif.index.isocalendar().week
 
-st.dataframe(dif.groupby('Week').mean())
+st.dataframe(dif.groupby('Week').sum())
 
 st.subheader("Texas")
 st.bar_chart(states.sort_index()['TX'].diff())
