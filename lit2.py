@@ -58,9 +58,13 @@ states.dropna(inplace=True)
 dif = states[['Southwest','Far West','Southeast','Mid South']].sort_index().diff()
 
 st.dataframe(dif.groupby(dif.index.isocalendar().week).sum())
+st.subheader("Southwest")
 st.bar_chart(dif[['Southwest']].mul(-1))
+st.subheader("Mid South")
 st.bar_chart(dif[['Mid South']].mul(-1))
+st.subheader("Southeast")
 st.bar_chart(dif[['Southeast']].mul(-1))
+st.subheader("Far West")
 st.bar_chart(dif[['Far West']].mul(-1))
 
 
