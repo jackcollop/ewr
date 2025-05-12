@@ -61,6 +61,10 @@ st.dataframe(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO'
 
 
 st.bar_chart(states.sort_index()['TX'].diff())
+st.line_chart(states.sort_index()['TX'].diff().rolling(7).mean())
+st.bar_chart(states.sort_index()['GA'].diff())
+st.line_chart(states.sort_index()['GA'].diff().rolling(7).mean())
+
 
 
 
