@@ -50,15 +50,15 @@ states['Southeast'] = states['AL & FL'] + states['GA'] + states['NC & VA'] + sta
 states['Mid South'] = states['AR'] + states['LA'] + states['MO'] + states['MS'] + states['TN']
 
 states['Date'] = pd.to_datetime(states['Date'], format='mixed')
-states['Week'] = states['Date'].dt.isocalendar().week
 
 states.set_index('Date', inplace=True)
 states.dropna(inplace=True)
 
 
+dif = states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']]
+dif['Week'] = dif.index.dt.isocalendar().week
 
-
-st.dataframe(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX','Week']].sort_index().diff().groupby('Week').mean())
+st.dataframe(dif.groupby('Week').mean())
 
 st.subheader("Texas")
 st.bar_chart(states.sort_index()['TX'].diff())
