@@ -58,13 +58,20 @@ states.dropna(inplace=True)
 
 st.dataframe(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].sort_index().diff())
 
-st.subheader("TX")
+st.subheader("Texas")
 st.bar_chart(states.sort_index()['TX'].diff())
-st.line_chart(states.sort_index()['TX'].diff().rolling(7).mean())
-st.subheader("GA")
-
+st.subheader("Georgia")
 st.bar_chart(states.sort_index()['GA'].diff())
-st.line_chart(states.sort_index()['GA'].diff().rolling(7).mean())
+st.subheader("Arkansas")
+st.bar_chart(states.sort_index()['AR'].diff())
+st.subheader("Kansas/Oklahoma")
+st.bar_chart(states.sort_index()['KS & OK'].diff())
+st.subheader("Mississippi")
+st.bar_chart(states.sort_index()['MS'].diff())
+st.subheader("Louisiana")
+st.bar_chart(states.sort_index()['LA'].diff())
+st.subheader("Missouri")
+st.bar_chart(states.sort_index()['MO'].diff())
 
 
 
