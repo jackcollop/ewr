@@ -59,4 +59,4 @@ states.dropna(inplace=True)
 st.subheader("Electronic warehouse receipts")
 st.dataframe(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].sort_index())
 
-st.line_chart(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].sort_index().rolling(7).sum())
+st.line_chart(states[['Southwest','Far West','Southeast','Mid South']])
