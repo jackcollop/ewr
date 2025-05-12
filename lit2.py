@@ -59,6 +59,6 @@ states.dropna(inplace=True)
 st.subheader("Electronic warehouse receipts")
 st.dataframe(states[['AL & FL', "AR", "AZ & NM",'CA', 'GA',"KS & OK", 'LA', 'MO','MS', "NC & VA", 'SC', 'TN', 'TX']].sort_index())
 
-regions = states[['Southwest','Far West','Southeast','Mid South']].diff().rolling(7).sum()
+regions = states[['Southwest','Far West','Southeast','Mid South']].pct_change()
 
 st.line_chart(regions)
