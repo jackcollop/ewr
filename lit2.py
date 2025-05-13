@@ -57,8 +57,11 @@ states.dropna(inplace=True)
 
 dif = states.sort_index().diff()
 
-st.dataframe(dif.groupby(dif.index.isocalendar().week).sum().sort_index(ascending=False))
+st.subheader("Held by CCC 2024")
 st.dataframe(states.sort_index(ascending=False))
+st.subheader("Weekly change in CCC totals")
+st.dataframe(dif.groupby(dif.index.isocalendar().week).sum().sort_index(ascending=False))
+
 st.subheader("Southwest")
 st.bar_chart(dif[['Southwest']])
 st.subheader("Mid South")
