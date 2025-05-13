@@ -69,22 +69,5 @@ st.subheader("Far West")
 st.bar_chart(dif[['Far West']])
 
 
-st.subheader("Texas")
-st.bar_chart(states.sort_index()['TX'].diff())
-st.subheader("Georgia")
-st.bar_chart(states.sort_index()['GA'].diff())
-st.subheader("Arkansas")
-st.bar_chart(states.sort_index()['AR'].diff())
-st.subheader("Kansas / Oklahoma")
-st.bar_chart(states.sort_index()['KS & OK'].diff())
-st.subheader("Mississippi")
-st.bar_chart(states.sort_index()['MS'].diff())
-st.subheader("Tennessee")
-st.bar_chart(states.sort_index()['TN'].diff())
-st.subheader("North Carolina / Virginia")
-st.bar_chart(states.sort_index()['NC & VA'].diff())
-
-
-
 
 
