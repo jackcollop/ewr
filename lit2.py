@@ -55,7 +55,7 @@ states.set_index('Date', inplace=True)
 states.dropna(inplace=True)
 
 
-dif = states[['Southwest','Far West','Southeast','Mid South']].sort_index().diff()
+dif = states.sort_index().diff()
 
 st.dataframe(dif.groupby(dif.index.isocalendar().week).sum())
 st.subheader("Southwest")
