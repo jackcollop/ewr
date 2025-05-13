@@ -57,7 +57,7 @@ states.dropna(inplace=True)
 
 dif = states.sort_index().diff()
 
-st.dataframe(dif.groupby(dif.index.isocalendar().week).sum())
+st.dataframe(dif.groupby(dif.index.isocalendar().week).sum().sort_index(ascending=False))
 st.dataframe(states.sort_index(ascending=False))
 st.subheader("Southwest")
 st.bar_chart(dif[['Southwest']])
