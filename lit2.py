@@ -63,13 +63,13 @@ st.subheader("Weekly change in CCC totals")
 st.dataframe(dif.groupby(dif.index.isocalendar().week).sum().sort_index(ascending=False))
 
 st.subheader("Southwest")
-st.bar_chart(dif[['Southwest']])
+st.line_chart(states[['Southwest']])
 st.subheader("Mid South")
-st.bar_chart(dif[['Mid South']])
+st.line_chart(states[['Mid South']])
 st.subheader("Southeast")
-st.bar_chart(dif[['Southeast']])
+st.line_chart(states[['Southeast']])
 st.subheader("Far West")
-st.bar_chart(dif[['Far West']])
+st.line_chart(states[['Far West']])
 
 
 
