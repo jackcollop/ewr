@@ -62,7 +62,7 @@ st.dataframe(states.sort_index(ascending=False))
 st.subheader("Weekly change in CCC totals")
 st.dataframe(dif.groupby(dif.index.isocalendar().week).sum().sort_index(ascending=False))
 
-st.line_chart(states[['Southwest','Mid South','Southeast''Far West']])
+st.line_chart(states[['Southwest','Mid South','Southeast','Far West']])
 
 
 
