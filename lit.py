@@ -16,7 +16,7 @@ for file in files:
     ccc.append(f.iloc[13,4])
     so.append(f.iloc[13,5])
     tot_open.append(f.iloc[13,10])
-    open25.append(f.iloc[13,5])
+    open25.append(f.iloc[13,6])
 #%%
 ewr = pd.DataFrame([dates,ccc,so, tot_open, open25]).T
 #%%
@@ -28,4 +28,5 @@ st.subheader("Electronic warehouse receipts")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=False))
 
 st.line_chart(ewr.set_index('Date'))
+
 
