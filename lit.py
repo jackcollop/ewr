@@ -17,11 +17,11 @@ for file in files:
     ccc.append(f.iloc[4,-1])
     so.append(f['Under Shipping Order'].iloc[-1])
     tot_open.append(f[f'Total Open'].iloc[-1])
-    open25.append(f['Open 2025'].iloc[-1])
+    open25.append(f.iloc[6,-1])
 #%%
 ewr = pd.DataFrame([dates,ccc,so, tot_open, open25]).T
 #%%
-ewr.columns = ['Date', 'CCC', 'SO','Total Open','Open 2025']
+ewr.columns = ['Date', 'CCC', 'SO','Total Open','Current Year Open']
 
 
 
@@ -29,6 +29,7 @@ st.subheader("Electronic warehouse receipts")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=False))
 
 st.line_chart(ewr.set_index('Date'))
+
 
 
 
