@@ -24,37 +24,38 @@ tx = []
 
 tot_open = []
 for file in files:
-    temp = pd.read_csv(file).set_index('State')
-    if temp.columns[4] == 2024:
-        dates.append(file[-14:-4])
-        al_fl.append(temp.loc['AL & FL']['Held by CCC 2024'])
-        ar.append(temp.loc['AR']['Held by CCC 2024'])
-        az_nm.append(temp.loc['AZ & NM']['Held by CCC 2024'])
-        ca.append(temp.loc['CA']['Held by CCC 2024'])
-        ga.append(temp.loc['GA']['Held by CCC 2024'])
-        ks_ok.append(temp.loc['KS & OK']['Held by CCC 2024'])
-        la.append(temp.loc['LA']['Held by CCC 2024'])
-        mo.append(temp.loc['MO']['Held by CCC 2024'])
-        ms.append(temp.loc['MS']['Held by CCC 2024'])
-        nc_va.append(temp.loc['NC & VA']['Held by CCC 2024'])
-        sc.append(temp.loc['SC']['Held by CCC 2024'])
-        tn.append(temp.loc['TN']['Held by CCC 2024'])
-        tx.append(temp.loc['TX']['Held by CCC 2024'])
-    elif temp.columns[4] == 2025:
-        dates.append(file[-14:-4])
-        al_fl.append(temp.loc['AL & FL']['Held by CCC 2025'])
-        ar.append(temp.loc['AR']['Held by CCC 2025'])
-        az_nm.append(temp.loc['AZ & NM']['Held by CCC 2025'])
-        ca.append(temp.loc['CA']['Held by CCC 2025'])
-        ga.append(temp.loc['GA']['Held by CCC 2025'])
-        ks_ok.append(temp.loc['KS & OK']['Held by CCC 2025'])
-        la.append(temp.loc['LA']['Held by CCC 2025'])
-        mo.append(temp.loc['MO']['Held by CCC 2025'])
-        ms.append(temp.loc['MS']['Held by CCC 2025'])
-        nc_va.append(temp.loc['NC & VA']['Held by CCC 2025'])
-        sc.append(temp.loc['SC']['Held by CCC 2025'])
-        tn.append(temp.loc['TN']['Held by CCC 2025'])
-        tx.append(temp.loc['TX']['Held by CCC 2025'])
+    if 'ytd' not in file:
+        temp = pd.read_csv(file).set_index('State')
+        if temp.columns[4] == 2024:
+            dates.append(file[-14:-4])
+            al_fl.append(temp.loc['AL & FL']['Held by CCC 2024'])
+            ar.append(temp.loc['AR']['Held by CCC 2024'])
+            az_nm.append(temp.loc['AZ & NM']['Held by CCC 2024'])
+            ca.append(temp.loc['CA']['Held by CCC 2024'])
+            ga.append(temp.loc['GA']['Held by CCC 2024'])
+            ks_ok.append(temp.loc['KS & OK']['Held by CCC 2024'])
+            la.append(temp.loc['LA']['Held by CCC 2024'])
+            mo.append(temp.loc['MO']['Held by CCC 2024'])
+            ms.append(temp.loc['MS']['Held by CCC 2024'])
+            nc_va.append(temp.loc['NC & VA']['Held by CCC 2024'])
+            sc.append(temp.loc['SC']['Held by CCC 2024'])
+            tn.append(temp.loc['TN']['Held by CCC 2024'])
+            tx.append(temp.loc['TX']['Held by CCC 2024'])
+        elif temp.columns[4] == 2025:
+            dates.append(file[-14:-4])
+            al_fl.append(temp.loc['AL & FL']['Held by CCC 2025'])
+            ar.append(temp.loc['AR']['Held by CCC 2025'])
+            az_nm.append(temp.loc['AZ & NM']['Held by CCC 2025'])
+            ca.append(temp.loc['CA']['Held by CCC 2025'])
+            ga.append(temp.loc['GA']['Held by CCC 2025'])
+            ks_ok.append(temp.loc['KS & OK']['Held by CCC 2025'])
+            la.append(temp.loc['LA']['Held by CCC 2025'])
+            mo.append(temp.loc['MO']['Held by CCC 2025'])
+            ms.append(temp.loc['MS']['Held by CCC 2025'])
+            nc_va.append(temp.loc['NC & VA']['Held by CCC 2025'])
+            sc.append(temp.loc['SC']['Held by CCC 2025'])
+            tn.append(temp.loc['TN']['Held by CCC 2025'])
+            tx.append(temp.loc['TX']['Held by CCC 2025'])
 
 states = pd.DataFrame([dates, al_fl, ar, az_nm, ca, ga,ks_ok, la, mo, ms, nc_va, sc, tn, tx]).T
 
@@ -79,6 +80,7 @@ st.subheader("Weekly change in CCC totals")
 st.dataframe(dif.groupby(dif.index.isocalendar().week).sum().sort_index(ascending=False))
 
 st.area_chart(states[['Southwest','Mid South','Southeast','Far West']], stack=True)
+
 
 
 
