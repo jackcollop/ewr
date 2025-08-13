@@ -26,7 +26,7 @@ tot_open = []
 for file in files:
     if 'ytd' not in file:
         temp = pd.read_csv(file).set_index('State')
-        if '2024' in temp.columns[4]:
+        if '2024' in temp.columns[3]:
             dates.append(file[-14:-4])
             al_fl.append(temp.loc['AL & FL']['Held by CCC 2024'])
             ar.append(temp.loc['AR']['Held by CCC 2024'])
@@ -41,7 +41,7 @@ for file in files:
             sc.append(temp.loc['SC']['Held by CCC 2024'])
             tn.append(temp.loc['TN']['Held by CCC 2024'])
             tx.append(temp.loc['TX']['Held by CCC 2024'])
-        elif '2025' in temp.columns[4]:
+        elif '2025' in temp.columns[3]:
             dates.append(file[-14:-4])
             al_fl.append(temp.loc['AL & FL']['Held by CCC 2025'])
             ar.append(temp.loc['AR']['Held by CCC 2025'])
@@ -82,6 +82,7 @@ st.dataframe(dif.groupby(dif.index.isocalendar().week).sum().sort_index(ascendin
 st.area_chart(states[['Southwest','Mid South','Southeast','Far West']], stack=True)
 
 st.caption(temp.columns[4])
+
 
 
 
