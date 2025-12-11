@@ -81,8 +81,6 @@ st.dataframe(dif.groupby(dif.index.isocalendar().week).sum().sort_index(ascendin
 
 st.area_chart(states[['Southwest','Mid South','Southeast','Far West']], stack=True)
 
-st.caption(temp.columns[4])
-
 
 
 
