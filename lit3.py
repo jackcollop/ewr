@@ -51,3 +51,4 @@ us['2024'] = us['2024']/14413000
 us['2025'] = us['2025']/14268000
 
 st.dataframe(us.round(3).mul(100))
+st.line_chart(us.round(3).mul(100))
