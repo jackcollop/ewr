@@ -30,7 +30,7 @@ y25 = []
 tot_open = []
 for file in files:
     if 'ytd' in file:
-        temp = pd.read_csv(file).set_index('State')
+        temp = pd.read_csv(file)
         dates.append(file[-14:-4])
         y21.append(temp[2021].sum())
         
