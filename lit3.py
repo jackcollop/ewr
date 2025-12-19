@@ -34,4 +34,4 @@ for file in files:
         dates.append(file[-14:-4])
         y21.append(temp['2021'].sum())
         
-st.dataframe(pd.Series(y21, index=dates))
+st.dataframe(pd.Series(y21, index=dates).sort_index())
