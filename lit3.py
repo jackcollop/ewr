@@ -44,6 +44,10 @@ st.dataframe(usa)
 st.line_chart(usa)
 
 us = usa
-us['2021'] = us['2021']/17000000
+us['2021'] = us['2021']/17523000
+us['2022'] = us['2021']/14468000
+us['2023'] = us['2021']/12066000
+us['2024'] = us['2021']/14413000
+us['2025'] = us['2021']/14268000
 
 st.dataframe(us, column_config=st.column_config.NumberColumn("2021", format="$ %d"))
