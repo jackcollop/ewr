@@ -33,5 +33,9 @@ for file in files:
         temp = pd.read_csv(file)
         dates.append(file[-14:-4])
         y21.append(temp['2021'].sum())
+        y22.append(temp['2022'].sum())
+        y23.append(temp['2023'].sum())
+        y24.append(temp['2024'].sum())
+        y25.append(temp['2025'].sum())
         
-st.dataframe(pd.Series(y21, index=dates).sort_index())
+st.dataframe(pd.DataFrame([y21,y22,y23,y24,y25], index=dates).sort_index())
