@@ -40,4 +40,6 @@ for file in files:
         
 st.dataframe(pd.DataFrame({'2021':y21,'2022':y22,'2023':y23,'2024':y24,'2025':y25}, index=dates).sort_index(ascending=False))
 
-st.dataframe(pd.DataFrame({'2021':y21/17523000,'2022':y22,'2023':y23,'2024':y24,'2025':y25}, index=dates).sort_index(ascending=False))
+st.dataframe(pd.DataFrame({'2021':y21,'2022':y22,'2023':y23,'2024':y24,'2025':y25}, index=dates).sort_index(ascending=False)/pd.Series([17523000,14468000,12066000,14413000,14268000])
+)
+
