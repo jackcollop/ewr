@@ -41,5 +41,9 @@ for file in files:
 usa = pd.DataFrame({'2021':y21,'2022':y22,'2023':y23,'2024':y24,'2025':y25}, index=dates).sort_index(ascending=False)
 
 st.dataframe(usa)
-
 st.line_chart(usa)
+
+us = usa
+us['2021'] = us['2021']/17000000
+
+st.dataframe(us)
