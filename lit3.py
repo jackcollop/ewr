@@ -46,4 +46,4 @@ st.line_chart(usa)
 us = usa
 us['2021'] = us['2021']/17000000
 
-st.dataframe(us, column_config=st.column_config.NumberColumn("2021", format="%d"))
+st.dataframe(us, column_config=st.column_config.NumberColumn("2021", format="$ %d"))
