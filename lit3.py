@@ -39,3 +39,5 @@ for file in files:
         y25.append(temp['2025'].sum())
         
 st.dataframe(pd.DataFrame({'2021':y21,'2022':y22,'2023':y23,'2024':y24,'2025':y25}, index=dates).sort_index(ascending=False))
+
+st.dataframe(pd.DataFrame({'2021':y21/17523000,'2022':y22,'2023':y23,'2024':y24,'2025':y25}, index=dates).sort_index(ascending=False))
