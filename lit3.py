@@ -38,8 +38,8 @@ for file in files:
         y24.append(temp['2024'].sum())
         y25.append(temp['2025'].sum())
         
-st.dataframe(pd.DataFrame({'2021':y21,'2022':y22,'2023':y23,'2024':y24,'2025':y25}, index=dates).sort_index(ascending=False))
+usa = pd.DataFrame({'2021':y21,'2022':y22,'2023':y23,'2024':y24,'2025':y25}, index=dates).sort_index(ascending=False)
 
-st.dataframe(pd.DataFrame({'2021':y21,'2022':y22,'2023':y23,'2024':y24,'2025':y25}, index=dates).sort_index(ascending=False)/pd.Series([17523000,14468000,12066000,14413000,14268000]).T
-)
+st.dataframe(usa)
 
+st.line_chart(usa)
