@@ -50,4 +50,4 @@ us['2023'] = us['2023']/12066000
 us['2024'] = us['2024']/14413000
 us['2025'] = us['2025']/14268000
 
-st.dataframe(us, column_config=st.column_config.NumberColumn("2021", format="$ %d"))
+st.dataframe(us.round(3).mul(100))
