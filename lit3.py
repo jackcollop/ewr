@@ -28,6 +28,9 @@ y24 = []
 y25 = []
 
 tot_open = []
+
+dfs = []
+
 for file in files:
     if 'ytd' in file:
         temp = pd.read_csv(file)
@@ -37,6 +40,8 @@ for file in files:
         y23.append(temp['2023'].sum())
         y24.append(temp['2024'].sum())
         y25.append(temp['2025'].sum())
+        temp['Date'] = file[-14:-4]
+        dfs.append(temp)
         
 usa = pd.DataFrame({'2021':y21,'2022':y22,'2023':y23,'2024':y24,'2025':y25}, index=dates).sort_index(ascending=False)
 
@@ -52,3 +57,5 @@ us['2025'] = us['2025']/14268000
 
 st.dataframe(us.round(3).mul(100))
 st.line_chart(us.round(3).mul(100))
+
+st.dataframe(pd.concat(dfs))
