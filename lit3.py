@@ -62,6 +62,6 @@ f = pd.concat(dfs)
 
 f['Date'] = pd.to_datetime(f['Date'])
 
-f = f.sort_values(by='Date').pivot(index='Date',columns='Region', values='2025')
+f = f.sort_values(by='Date', ascending=False).pivot(index='Date',columns='Region', values=['2021','2025'])
 
 st.dataframe(f)
