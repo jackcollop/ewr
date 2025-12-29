@@ -62,6 +62,8 @@ f = pd.concat(dfs)
 
 f['Date'] = pd.to_datetime(f['Date'])
 
-f = f.sort_values(by='Date', ascending=False).pivot(index='Date',columns='Region', values=['2021','2025'])
+f = f.sort_values(by='Date', ascending=False).pivot(index='Date',columns='Region', values=['2021','2022','2023','2024','2025'])
 
 st.dataframe(f)
+
+st.line_chart(f)
