@@ -64,6 +64,6 @@ f['Date'] = pd.to_datetime(f['Date'])
 
 f = f.sort_values(by='Date', ascending=False).pivot(index='Date',columns='Region', values=['2021','2022','2023','2024','2025'])
 
-st.dataframe(f)
+f.columns.name = 'Year'
 
-st.line_chart(f)
+st.dataframe(f.melt())
