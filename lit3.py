@@ -60,4 +60,8 @@ st.line_chart(us.round(3).mul(100))
 
 f = pd.concat(dfs)
 
+f['Date'] = pd.to_datetime(f['Date'])
+
+f = f.sort_values(by='Date').pivot(index='Date',columns='Region', values='2025')
+
 st.dataframe(f)
