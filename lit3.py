@@ -58,4 +58,6 @@ us['2025'] = us['2025']/14268000
 st.dataframe(us.round(3).mul(100))
 st.line_chart(us.round(3).mul(100))
 
-st.dataframe(pd.concat(dfs))
+f = pd.concat(dfs)
+
+st.dataframe(f)
