@@ -31,7 +31,8 @@ st.dataframe(ewr.set_index('Date').sort_index(ascending=False))
 st.line_chart(ewr.set_index('Date'))
 
 st.subheader("Electronic warehouse receipts delta")
-st.dataframe(ewr.set_index('Date').sort_index(ascending=True).diff().sort_index(ascending=True))
+st.dataframe(ewr.set_index('Date').sort_index(ascending=True).diff().sort_index(ascending=False))
+
 
 
 
