@@ -10,6 +10,7 @@ ccc = []
 so = []
 tot_open = []
 open25 = []
+new25 = []
 for file in files:
     if not 'ytd' in file: 
         f = pd.read_csv(file)
@@ -18,10 +19,11 @@ for file in files:
         so.append(f['Under Shipping Order'].iloc[-1])
         tot_open.append(f[f'Total Open'].iloc[-1])
         open25.append(f.iloc[-1,6])
+        new25.append(f.iloc[-1,2])
 #%%
 ewr = pd.DataFrame([dates,ccc,so, tot_open, open25]).T
 #%%
-ewr.columns = ['Date', 'CCC', 'SO','Total Open','Current Year Open']
+ewr.columns = ['Date', 'CCC', 'SO','Total Open','Current Year Open','New']
 
 
 
@@ -32,6 +34,7 @@ st.line_chart(ewr.set_index('Date'))
 
 st.subheader("Electronic warehouse receipts delta")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=True).diff().sort_index(ascending=False))
+
 
 
 
