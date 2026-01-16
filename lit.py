@@ -23,8 +23,9 @@ for file in files:
 #%%
 ewr = pd.DataFrame([dates,ccc,so, tot_open, open25, new25]).T
 #%%
-ewr.columns = ['Date', 'CCC', 'SO','Total Open','Current Year Open','New']
+ewr.columns = ['Date', 'CCC', 'SO','Total Open','CY Open','New']
 
+ewr['CY Lost'] = ewr['New'] - ewr['CY Open']
 
 
 st.subheader("Electronic warehouse receipts")
@@ -34,6 +35,7 @@ st.line_chart(ewr.set_index('Date'))
 
 st.subheader("Electronic warehouse receipts delta")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=True).diff().sort_index(ascending=False))
+
 
 
 
