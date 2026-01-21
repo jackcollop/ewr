@@ -66,4 +66,4 @@ f = f.sort_values(by='Date', ascending=False).pivot(index='Date',columns='Region
 
 f.columns.name = 'Year'
 
-st.dataframe(f.melt())
+st.dataframe(f)
