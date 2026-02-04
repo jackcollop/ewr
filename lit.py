@@ -1,7 +1,6 @@
 import pandas as pd
-import altair as alt
 import streamlit as st
-
+import plotly.express as px
 import glob
 
 files = glob.glob(r'*.csv')
@@ -31,10 +30,12 @@ ewr['CY Lost'] = ewr['New'] - ewr['CY Open']
 st.subheader("Electronic warehouse receipts")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=False))
 
-st.line_chart(ewr.set_index('Date'))
+fig = px.line(ewr.set_index('Date'))
+st.plotly_chart(fig)
 
 st.subheader(r"Electronic warehouse receipts $\Delta$")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=True).diff().sort_index(ascending=False))
+
 
 
 
