@@ -28,13 +28,14 @@ ewr['CY Lost'] = ewr['New'] - ewr['CY Open']
 
 
 st.subheader("Electronic warehouse receipts")
-st.dataframe(ewr.set_index('Date').sort_index(ascending=False))
+st.dataframe(ewr.set_index('Date'))
 
-fig = px.line(ewr.set_index('Date'))
+fig = px.line(ewr.set_index('Date').sort_index(ascending=False))
 st.plotly_chart(fig)
 
 st.subheader(r"Electronic warehouse receipts $\Delta$")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=True).diff().sort_index(ascending=False))
+
 
 
 
