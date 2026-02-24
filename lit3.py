@@ -66,4 +66,4 @@ f = f.sort_values(by='Date', ascending=False).pivot(index='Date',columns='Region
 
 f.columns.name = 'Year'
 
-st.dataframe(f['2025'].sort_index(ascending=False).diff())
+st.dataframe(f['2025'].diff().sort_index(ascending=False))
