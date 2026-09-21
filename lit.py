@@ -48,7 +48,7 @@ state_frame.set_index('Date', inplace=True)
 st.dataframe(state_frame.sort_index(ascending=False))
 
 
-st.subheader(r"New receipts by state")
+st.subheader(r"New receipts by state (season-to-date)")
 state_frame2 = pd.DataFrame(states_new)
 state_frame2.columns = ['AL/FL','AR','AZ/NM','CA','GA','KS/OK','LA','MO','MS','NC/VA','SC','TN','TX']
 state_frame2['Date'] = dates
