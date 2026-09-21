@@ -38,8 +38,10 @@ st.plotly_chart(fig)
 st.subheader(r"Electronic warehouse receipts $\Delta$")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=True).diff().sort_index(ascending=False))
 
+state_frame = pd.DataFrame(states)
+state_frame.columns = files[-1].iloc[:-1,0]
 
-st.dataframe(pd.DataFrame(states))
+st.dataframe(state_frame)
 
 
 
