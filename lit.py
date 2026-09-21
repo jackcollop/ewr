@@ -41,7 +41,7 @@ st.dataframe(ewr.set_index('Date').sort_index(ascending=True).diff().sort_index(
 state_frame = pd.DataFrame(states)
 state_frame.columns = ['AL/FL','AR','AZ/NM','CA','GA','KS/OK','LA','MO','MS','NC/VA','SC','TN','TX']
 
-st.dataframe(state_frame)
+st.dataframe(state_frame.sort_index(ascending=False))
 
 
 
