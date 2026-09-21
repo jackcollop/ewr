@@ -11,6 +11,7 @@ tot_open = []
 open25 = []
 new25 = []
 states = []
+states_new = []
 for file in files:
     if not 'ytd' in file: 
         f = pd.read_csv(file)
@@ -21,6 +22,7 @@ for file in files:
         open25.append(f.iloc[-1,6])
         new25.append(f.iloc[-1,3])
         states.append(f[f'Total Open'].iloc[:-1])
+        states_new.append(f.iloc[:-1,3])
 #%%
 ewr = pd.DataFrame([dates,ccc,so, tot_open, open25, new25]).T
 #%%
@@ -38,11 +40,20 @@ st.plotly_chart(fig)
 st.subheader(r"Electronic warehouse receipts $\Delta$")
 st.dataframe(ewr.set_index('Date').sort_index(ascending=True).diff().sort_index(ascending=False))
 
+st.subheader(r"Total open receipts by state")
 state_frame = pd.DataFrame(states)
 state_frame.columns = ['AL/FL','AR','AZ/NM','CA','GA','KS/OK','LA','MO','MS','NC/VA','SC','TN','TX']
 state_frame['Date'] = dates
 state_frame.set_index('Date', inplace=True)
 st.dataframe(state_frame.sort_index(ascending=False))
+
+
+st.subheader(r"New receipts by state")
+state_frame2 = pd.DataFrame(states_new)
+state_frame2.columns = ['AL/FL','AR','AZ/NM','CA','GA','KS/OK','LA','MO','MS','NC/VA','SC','TN','TX']
+state_frame2['Date'] = dates
+state_frame2.set_index('Date', inplace=True)
+st.dataframe(state_frame2.sort_index(ascending=False))
 
 
 
