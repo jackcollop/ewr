@@ -56,7 +56,7 @@ state_frame2.set_index('Date', inplace=True)
 st.dataframe(state_frame2.sort_index(ascending=False))
 
 st.subheader(r"Daily receipts by state")
-st.dataframe(state_frame2.sort_index(ascending=False).diff())
+st.dataframe(state_frame2.sort_index(ascending=True).diff().sort_index(ascending=False))
 
 
 
